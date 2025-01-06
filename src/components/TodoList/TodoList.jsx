@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import todosData from './../../assets/todos.json';
+// import todosData from './../../assets/todos.json';
 import { TodoItem } from './todoItem';
 import s from './TodoList.module.css';
 
 export const TodoList = () => {
 	const [todos, setTodos] = useState(() => {
 		const savedData = JSON.parse(localStorage.getItem('todos'));
-		if (savedData.length) {
+		if (savedData?.length) {
       return savedData;
 		}
 		
