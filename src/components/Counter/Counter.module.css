@@ -1,0 +1,26 @@
+.flexContainer {
+	margin: 0 auto;
+}
+
+.wrapper {
+	background-color: gray;
+	border-radius: 20px;
+	padding: 20px 5px;
+	max-width: 500px;
+}
+
+h1 {
+	text-align: center;
+	color: red;
+	font-size: 100px;
+}
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn {
+	padding: 45px;
+	font-size: 30px;
+}
