@@ -1,11 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import todosData from './../../assets/todos.json';
 import { TodoItem } from './todoItem';
 import s from './TodoList.module.css';
-import { FaWineGlassEmpty } from 'react-icons/fa6';
 
 export const TodoList = () => {
-	const [todos, setTodos] = useState(todosData);
+	const [todos, setTodos] = useState(() => {
+		const savedData = JSON.parse(localStorage.getItem('todos'));
+		if (savedData.length) {
+      return savedData;
+		}
+		
+		return [];
+	});
 	const deleteTodo = id => {
 		console.log(id);
 		const newArr = todos.filter(item => item.id !== id);
@@ -21,6 +27,11 @@ export const TodoList = () => {
 		};
 		setTodos((prev) => [...prev, newTodo]);
 	};
+
+	useEffect(() => {
+		localStorage.setItem('todos', JSON.stringify(todos))
+	}, [todos]);
+
 	return (
 		<div>
 			<div className="flex">

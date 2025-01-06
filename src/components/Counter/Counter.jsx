@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import s from './Counter.module.css';
 
 export const Counter = () => {
@@ -6,6 +6,14 @@ export const Counter = () => {
 	const [counter, setCounter] = useState(0);
 	const [step, setStep] = useState(1);
 
+	useEffect(() => {
+		console.log("Show component in DOM 'OK'");
+	}, []);
+
+	useEffect(() => {
+		console.log('Changed counter: ', counter);
+	}, [counter]);
+	
 	const handleClickPlus = () => {
 		// setCounter(counter + 1)
 
